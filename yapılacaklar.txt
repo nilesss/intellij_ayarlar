@@ -1,0 +1,41 @@
+Sistemde kurulu Chrome Versiyonu ile test iþlemlerinde kullanýlan chromedriver.exe versiyonu ayný olmalý. Farklýlýk durumunda hatalar alýnýyor.
+
+Yapýlacaklar.
+1- Sistemdeki chrome sürümü kontrol edilir.
+2- Sistemdeki chrome sürümüne uygun chromedriver google sitesinden indirilir.
+    - https://googlechromelabs.github.io/chrome-for-testing/#stable
+3- chromedriver ýn çýkartýldýðý yerin tam dosya yolu aþaðýdaki gibi setlenir.
+
+	String chromeDriverPath = "C:\\Users\\ab255561\\jdk_silme\\chromedriver_SILME\\chromedriver.exe"; // Buradaki yol kendi sisteminizdeki gerçek yol olmalýdýr.
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+
+
+4- Bu iþlemlerden sonra aþaðýdaki þekilde kullanýlabilir.
+
+	WebDriver driver = new ChromeDriver();
+        driver.get("https://www.amazon.com.tr");
+        driver.manage().window().maximize();
+
+Not: Çalýþan bir örnek (SeleniumGirisIlk) üzerinde iþlem anýnda kullanýlan dependency ler aþaðýdaki gibidir.
+	<artifactId>SeleniumGirisIlk</artifactId>
+
+	<dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.23.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.1</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>test</scope>
+        </dependency>
